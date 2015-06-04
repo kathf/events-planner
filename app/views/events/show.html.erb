@@ -1,0 +1,41 @@
+<div class = "container">
+
+  <div class = "row">
+    <div class="col-xs-12">
+      <div class="page-header">
+        <div class="pull-right" role="links">
+          <ul class="list-inline">
+            <li> <%= link_to "Add task", new_event_task_path(@event), class: "btn btn-warning" %> </li>
+          </ul>
+        </div>
+        <h1> <%= @event.name %> </h1>
+      </div>
+    </div> <!-- col -->
+  </div> <!-- row -->
+
+
+  <div class = "row">
+    <div class="col-xs-12 col-sm-5 col-md-4">
+      <ul class="list-group event-list" role="details">
+        <li class="list-group-item "> <strong> Date: </strong> <%= @event.start.strftime("%d %B") %> - <%= @event.end.strftime("%d %B %Y") %> </li>
+        <li class="list-group-item">
+          <p> <strong> Comments: </strong> <%= event_comment_if_exists %> </p>
+        </li>
+      </ul>
+      <div role="task-list">
+        <ul class="list-group">
+          <li class="list-group-item active"> Pending tasks </li>
+          <% @tasks.each do |task| %>
+            <li class="list-group-item btn-primary"> <%= link_to task.name, event_task_path(@event, task) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div> <!-- col -->
+
+    <div class="col-sm-7 col-md-8" role="calendar">
+      <p>insert calendar here </p>
+    </div> <!-- col -->
+  </div> <!-- row -->
+
+
+</div> <!-- container -->

@@ -9,7 +9,9 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-  def show; end
+  def show
+    @tasks = @event.tasks
+  end
 
   def create
     @event = Event.new(event_params)
