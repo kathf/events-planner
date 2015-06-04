@@ -1,16 +1,14 @@
-<h1>List of All Contacts</h1>
-<% @contacts.each do |contact| %>
-  <ul>
-  <li>Contact Name: <%= contact.name %></li>
-  <li>Phone: <% contact.phone.each do |phone| %>
-    <ul><li><%= phone %></li></ul>
-    <% end %>
-  </li>
-  <li>Address: <% contact.address.each do |address| %>
-    <ul><li><%= address %></li></ul>
-    <% end %>
-  </li>
-  <li>Email: <%= contact.email %></li>
-  <li>Comment: <%= contact.comment %></li>
-</ul>
-<% end %>
+<div class="container lines">
+  <h1>List of All Contacts</h1>
+  <% @contacts.sort.each do |contact| %>
+    <h4><%= link_to(contact.name, contact_url(contact)) %></h4>
+    <ul>
+      <li>Company: <%= contact.company %></li>
+      <li>Phone 1: <%= contact.phone1 %></li>
+      <li>Phone 2: <%= contact.phone2 %></li>
+      <li>Email: <%= contact.email %></li>
+      <li>Address: <%= contact.address %></li>
+      <li>Comment: <%= contact.comment %></li>
+    </ul>
+  <% end %>
+</div>

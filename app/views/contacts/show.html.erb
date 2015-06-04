@@ -1,0 +1,14 @@
+<div class="container">
+  <%= link_to("Back to Contact Index", contacts_url ) %>
+  <br>
+  <%= link_to("Edit this Contact", edit_contact_url(@contact) ) %>
+  <h3>Contact: <%= @contact.name %></h3>
+  <h3>Company:  <%= @contact.company %></h3>
+  <h3>Phone 1:  <%= @contact.phone1 %></h3>
+  <h3>Phone 2:  <%= @contact.phone2 %></h3>
+  <h3>Email:  <%= @contact.email %></h3>
+  <h3>Address:  <%= @contact.address %></h3>
+  <h3>Comment: <%= @contact.comment %></h3>
+  <p>Created At (local time): <%= @contact.created_at.localtime.strftime("%d %B %Y %Z") %></p>
+  <p>Updated At (local time): <%= @contact.updated_at.localtime.strftime("%d %B %Y %Z") %></p>
+</div>

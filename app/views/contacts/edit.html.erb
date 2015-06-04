@@ -1,0 +1,15 @@
+<div class="container">
+<%= link_to("Back to Contact Details", contact_url(@contact)) %>
+
+<h1>Editing <%= @contact.name %></h1>
+  <%= simple_form_for @contact do |c| %>
+    <%= c.input :name %>
+    <%= c.input :company %>
+    <%= c.input :phone1 %>
+    <%= c.input :phone2 %>
+    <%= c.input :email %>
+    <%= c.input :address %>
+    <%= c.input :comment %>
+    <%= c.button :submit %>
+  <% end %>
+</div

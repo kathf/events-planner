@@ -9,7 +9,7 @@
 
 
 1.upto(12) do |num3|
-  contact = Contact.create!(name: "Contact no.#{num3}", phone: ["0293799#{num3}3", "0299589#{num3}4"], address: ["address line.1", "address line.2"], email: "#{num3}@mail.com", comment: "hflfnlwfnw")
+  contact = Contact.create!(name: "Contact no.#{num3}", company: "Company no.#{num3}", phone1: "0293799#{num3}3", phone2: "0299589#{num3}4", email: "#{num3}@mail.com", address: "address line.#{num3}", comment: "hflfnlwfnw")
 end
 
 
