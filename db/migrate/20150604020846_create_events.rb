@@ -4,7 +4,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :name
       t.timestamp :start
       t.timestamp :end
-      t.string :address, default: []
+      t.string :address, array: true, default: []
       t.text :comment
       t.timestamps null: false
     end
