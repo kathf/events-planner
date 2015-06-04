@@ -1,14 +1,17 @@
-<div class="container lines">
+<div class="container">
+  <p><%= link_to("Create a New Contact", new_contact_url) %></p>
   <h1>List of All Contacts</h1>
   <% @contacts.sort.each do |contact| %>
-    <h4><%= link_to(contact.name, contact_url(contact)) %></h4>
-    <ul>
-      <li>Company: <%= contact.company %></li>
-      <li>Phone 1: <%= contact.phone1 %></li>
-      <li>Phone 2: <%= contact.phone2 %></li>
-      <li>Email: <%= contact.email %></li>
-      <li>Address: <%= contact.address %></li>
-      <li>Comment: <%= contact.comment %></li>
-    </ul>
+    <div class="lines">
+      <h4><%= link_to(contact.name, contact_url(contact)) %></h4>
+      <ul>
+        <li>Company: <%= contact.company %></li>
+        <li>Phone 1: <%= contact.phone1 %></li>
+        <li>Phone 2: <%= contact.phone2 %></li>
+        <li>Email: <%= contact.email %></li>
+        <li>Address: <%= contact.address %></li>
+        <li>Comment: <%= contact.comment %></li>
+      </ul>
+    </div>
   <% end %>
 </div>
