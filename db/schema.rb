@@ -13,24 +13,27 @@
 
 ActiveRecord::Schema.define(version: 20150604020858) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
-    t.string   "phone",      default: "--- []\n"
-    t.string   "address",    default: "--- []\n"
+    t.string   "phone",      default: [],              array: true
+    t.string   "address",    default: [],              array: true
     t.string   "email"
     t.text     "comment"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.datetime "start"
     t.datetime "end"
-    t.string   "address",    default: "--- []\n"
+    t.string   "address",    default: [],              array: true
     t.text     "comment"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "tasks", force: :cascade do |t|
