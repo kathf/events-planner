@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :find_event, except: [ :index, :new, :create, :due_this_week]
+  before_action :find_event, only: [ :show, :update, :destroy, :edit ]
 
   def index
     @events = Event.all
@@ -37,7 +37,7 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:name)
+      params.require(:event).permit(:name, :start, :end, :address, :comment)
     end
 
     def find_event
