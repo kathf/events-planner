@@ -1,9 +1,9 @@
 <div class="container">
-  <p><%= link_to("Create a New Contact", new_contact_url) %></p>
+  <button class="btn btn-primary" type="submit"><%= link_to("Create a New Contact", new_contact_url) %></button>
   <h1>List of All Contacts</h1>
   <% @contacts.sort.each do |contact| %>
     <div class="lines">
-      <h4><%= link_to(contact.name, contact_url(contact)) %></h4>
+      <h3><%= link_to(contact.name, contact_url(contact)) %></h3>
       <ul>
         <li>Company: <%= contact.company %></li>
         <li>Phone 1: <%= contact.phone1 %></li>

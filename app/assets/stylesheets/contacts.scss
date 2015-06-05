@@ -1,6 +1,11 @@
 // Place all the styles related to the contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.lines { 
+.lines {
   border-bottom: 1px solid #878585;
+}
+
+button {
+  a:link { color: #fff } /* unvisited links */
+  a:visited { color: #fff } /* visited links */
 }

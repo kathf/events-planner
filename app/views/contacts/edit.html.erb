@@ -1,5 +1,5 @@
 <div class="container">
-  <%= link_to("Back to Contact Details", contact_url(@contact)) %>
+  <button class="btn btn-default" type="submit"><%= link_to("Back to Contact Details", contact_url(@contact)) %></button>
   <h1>Editing <%= @contact.name %></h1>
   <%= render partial: 'form' %>
 </div>

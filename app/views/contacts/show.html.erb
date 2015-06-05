@@ -1,9 +1,7 @@
 <div class="container">
-  <%= link_to("Back to Contact Index", contacts_url ) %>
-  <br>
-  <%= link_to("Edit this Contact", edit_contact_url(@contact) ) %>
-  <br>
-  <%= link_to("Delete this Contact", contact_url(@contact), method: :delete, data: { confirm: "Are you sure?" } ) %>
+  <button class="btn btn-primary" type="submit"><%= link_to("Back to Contact Index", contacts_url ) %></button>
+  <button class="btn btn-info" type="submit"><%= link_to("Edit this Contact", edit_contact_url(@contact) ) %></button>
+  <button class="btn btn-danger" type="submit"><%= link_to("Delete this Contact", contact_url(@contact), method: :delete, data: { confirm: "Are you sure?" } ) %></button>
   <h2><%= @contact.name %></h2>
   <h4>Company:  <%= @contact.company %></h4>
   <h4>Phone 1:  <%= @contact.phone1 %></h4>
