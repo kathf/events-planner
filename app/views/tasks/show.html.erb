@@ -1,0 +1,33 @@
+<div class = "container">
+
+  <div class = "row">
+    <div class="col-xs-12">
+      <div class="page-header">
+        <div class="pull-right" role="links">
+          <ul class="list-inline">
+            <li> <%= link_to "Delete task", event_task_path(@event, @task), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %> </li>
+            <li> <%= link_to "Edit task", edit_event_task_path(@event, @task), class: "btn btn-warning" %> </li>
+          </ul>
+        </div>
+        <h1> <%= @task.name %> </h1>
+      </div>
+    </div> <!-- col -->
+  </div> <!-- row -->
+
+  <div class = "row">
+    <div class="col-sm-7 col-md-8">
+      <ul class="list-group event-list" role="details">
+        <li class="list-group-item "> <strong> Deadline: </strong> <%= @task.deadline.strftime("%d %B %Y") %> </li>
+        <li class="list-group-item "> <strong> Cost: </strong> <%= number_to_currency(@task.cost) %> </li>
+        <li class="list-group-item"> <p> <strong> Comments: </strong> <%= task_comment_if_exists %> </p>
+        </li>
+      </ul>
+    </div> <!-- col -->
+
+    <div class="col-xs-12 col-sm-5 col-md-4" role="contacts">
+      <p>insert contacts here </p>
+    </div> <!-- col -->
+  </div> <!-- row -->
+
+
+</div> <!-- container -->

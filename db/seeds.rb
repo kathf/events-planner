@@ -19,10 +19,11 @@ end
 
   event = Event.create!(name: "Event no.#{num1}", start: Time.at(date1), end: Time.at(date2), address: ["address line.1", "address line.2"], comment: "abscdhd")
 
-  date3 = date1 - 1209600
-  amount = 1 + rand(15000)
 
   1.upto(7) do |num2|
-    task = event.tasks.create!(name: "Task no.#{num2}", deadline: date3, cost: amount, contact_id: ( 1 + rand(11) ) )
+    date3 = date1 - 1209600
+    amount = 1 + rand(15000)
+
+    task = event.tasks.create!(name: "Task no.#{num2}", deadline: Time.at(date3), cost: amount, contact_id: ( 1 + rand(11) ) )
   end
 end

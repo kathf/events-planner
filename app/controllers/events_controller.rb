@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :find_event, except: [ :index, :new, :create, :due_this_week]
+  before_action :find_event, only: [ :show, :update, :destroy, :edit ]
 
   def index
     @events = Event.all
@@ -9,7 +9,9 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-  def show; end
+  def show
+    @tasks = @event.tasks
+  end
 
   def create
     @event = Event.new(event_params)
@@ -35,7 +37,7 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:name)
+      params.require(:event).permit(:name, :start, :end, :address, :comment)
     end
 
     def find_event
