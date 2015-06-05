@@ -1,0 +1,14 @@
+<div class="container">
+  <button class="btn btn-primary" type="submit"><%= link_to("Back to Contact Index", contacts_url ) %></button>
+  <button class="btn btn-info" type="submit"><%= link_to("Edit this Contact", edit_contact_url(@contact) ) %></button>
+  <button class="btn btn-danger" type="submit"><%= link_to("Delete this Contact", contact_url(@contact), method: :delete, data: { confirm: "Are you sure?" } ) %></button>
+  <h2><%= @contact.name %></h2>
+  <h4>Company:  <%= @contact.company %></h4>
+  <h4>Phone 1:  <%= @contact.phone1 %></h4>
+  <h4>Phone 2:  <%= @contact.phone2 %></h4>
+  <h4>Email:  <%= @contact.email %></h4>
+  <h4>Address:  <%= @contact.address %></h4>
+  <h4>Comment: <%= @contact.comment %></h4>
+  <p>Created At (local time): <%= @contact.created_at.localtime.strftime("%d %B %Y %Z") %></p>
+  <p>Updated At (local time): <%= @contact.updated_at.localtime.strftime("%d %B %Y %Z") %></p>
+</div>
