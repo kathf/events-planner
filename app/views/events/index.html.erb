@@ -1,7 +1,7 @@
 <div class = "container">
 
   <div class = "row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-8 col-md-offset-2" role="header">
       <div class="page-header">
         <h1> My Events </h1>
       </div>
@@ -9,12 +9,23 @@
   </div> <!-- row -->
 
   <div class = "row">
-    <div class="col-md-8 col-md-offset-2">
-      <ul class="list-group event-list">
+    <div class="col-md-8 col-md-offset-2 events-list">
+      <ul class="list-group">
         <% @events.each do |event| %>
-          <li class="list-group-item"> <%= link_to event.name, event_path(event) %> </li>
+          <li class="list-group-item btn-primary"> <%= link_to event.name, event_path(event) %></li>
         <% end %>
       </ul>
     </div> <!-- col -->
   </div> <!-- row -->
+
+  <div class = "row">
+    <div class="col-md-8 col-md-offset-2" role="links">
+      <ul class="list-inline">
+        <li> <%= link_to "All Contacts", contacts_path, class: "btn btn-default" %> </li>
+        <li> <%= link_to "Add event", new_event_path, class: "btn btn-warning" %> </li>
+        <li> <%= link_to "View archived events", request.path, class: "btn btn-success" %> </li>
+      </ul>
+    </div> <!-- col -->
+  </div> <!-- row -->
+
 </div> <!-- container -->

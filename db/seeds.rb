@@ -9,7 +9,7 @@
 
 
 1.upto(12) do |num3|
-  contact = Contact.create!(name: "Contact no.#{num3}", phone: ["0293799#{num3}3", "0299589#{num3}4"], address: ["address line.1", "address line.2"], email: "#{num3}@mail.com", comment: "hflfnlwfnw")
+  contact = Contact.create!(name: "Contact no.#{num3}", company: "Company no.#{num3}", phone1: "0293799#{num3}3", phone2: "0299589#{num3}4", email: "#{num3}@mail.com", address: "address line.#{num3}", comment: "hflfnlwfnw")
 end
 
 
@@ -19,10 +19,11 @@ end
 
   event = Event.create!(name: "Event no.#{num1}", start: Time.at(date1), end: Time.at(date2), address: ["address line.1", "address line.2"], comment: "abscdhd")
 
-  date3 = date1 - 1209600
-  amount = 1 + rand(15000)
 
   1.upto(7) do |num2|
-    task = event.tasks.create!(name: "Task no.#{num2}", deadline: date3, cost: amount, contact_id: ( 1 + rand(11) ) )
+    date3 = date1 - 1209600
+    amount = 1 + rand(15000)
+
+    task = event.tasks.create!(name: "Task no.#{num2}", deadline: Time.at(date3), cost: amount, contact_id: ( 1 + rand(11) ) )
   end
 end

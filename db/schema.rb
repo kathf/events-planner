@@ -18,12 +18,14 @@ ActiveRecord::Schema.define(version: 20150604020858) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
-    t.string   "phone",      default: [],              array: true
-    t.string   "address",    default: [],              array: true
+    t.string   "company"
+    t.string   "phone1"
+    t.string   "phone2"
     t.string   "email"
+    t.string   "address"
     t.text     "comment"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "events", force: :cascade do |t|
