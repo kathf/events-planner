@@ -7,6 +7,8 @@ class CreateTasks < ActiveRecord::Migration
       t.timestamp :deadline
       t.decimal :cost, precision: 7, scale: 2
       t.text :comment
+      t.boolean :completed, default: false
+      t.timestamp :completed_at
       t.timestamps null: false
     end
   end
