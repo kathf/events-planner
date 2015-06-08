@@ -1,0 +1,32 @@
+<div class="container"
+  <div class="row">
+    <div class="col-sm-6">
+
+
+<%= simple_form_for ([@event, @task]) do |form| %>
+  <%= form.input :name %>
+  <%= form.label :Date %>
+  <%= form.date_field :deadline, discard_second: true, class: "text-center" %>
+  <%= form.label :Time %>
+  <%= form.time_field :deadline, discard_second: true, class: "text-center" %>
+  <%= form.input :cost %>
+  <%= form.input :comment %>
+  <strong>PLEASE SELECT CONTACT FROM THE LIST: </strong>
+  <%= form.association :contact, collection: Contact.all %>
+  <br>
+  <strong>OTHERWISE, ENTER THE NEW CONTACT DETAILS: </strong>
+  <ul>
+    <%= form.association :contact do |contact_fields| %>
+      <%= contact_fields.input :name %>
+      <%= contact_fields.input :company %>
+      <%= contact_fields.input :phone1 %>
+      <%= contact_fields.input :phone2 %>
+      <%= contact_fields.input :email %>
+      <%= contact_fields.input :address %>
+      <%= contact_fields.input :comment %>
+    <% end %>
+  </ul>
+  <%= form.button :submit %>
+<% end %>
+  </div> <!-- row -->
+</div> <!-- container -->
