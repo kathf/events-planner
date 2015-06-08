@@ -11,7 +11,9 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.create(contact_params)
+    @contact = Contact.new(contact_params)
+    @contact.task = @task
+    @contact.event = @event
     redirect_to contact_url(@contact)
   end
 
@@ -33,7 +35,7 @@ class ContactsController < ApplicationController
   def find_contact
     @contact = Contact.find(params[:id])
   end
-  
+
   def contact_params
     params.require(:contact).permit(:name, :company, :phone1, :phone2, :email, :address, :comment)
   end

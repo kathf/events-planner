@@ -9,3 +9,17 @@
     color: white;
   }
 }
+
+
+.field_with_errors {
+  color: red;
+  background: yellow;
+  width: 200px;
+  height: 30px;
+}
+
+#error_explanation {
+  background: yellow;
+  color: red;
+  width: 200px;
+}
