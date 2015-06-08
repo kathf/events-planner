@@ -3,9 +3,43 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .events-list a {
-  color: #555;
+
+  &:active {
+    color: #555;
+  }
 
   &:hover {
-    color: white;
+      color: white;
   }
+}
+
+
+.list-group-item {
+  &:hover a {
+    &:visited, :active, :link  {
+      color: white;
+    }
+  }
+}
+
+
+.date-form-inputs {
+
+  #event_start, #event_end {
+    border-radius: 4px;
+    display: inline-block;
+    width: initial;
+  }
+
+  label {
+    min-width: 70px;
+  }
+}
+
+.calendar-week {
+  height: 300px;
+}
+
+.calendar-entry {
+  background-color: #CCF5EB;
 }

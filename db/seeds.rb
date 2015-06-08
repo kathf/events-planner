@@ -8,22 +8,92 @@
 
 
 
-1.upto(12) do |num3|
-  contact = Contact.create!(name: "Contact no.#{num3}", company: "Company no.#{num3}", phone1: "0293799#{num3}3", phone2: "0299589#{num3}4", email: "#{num3}@mail.com", address: "address line.#{num3}", comment: "hflfnlwfnw")
+contact_array = [
+  'Christian Sipple',
+  'Vinnie Haake',
+  'Marita Schear',
+  'Lajuana Icenhour',
+  'Kent Dehaan',
+  'Brittney Metzger',
+  'Fransisca Delaney',
+  'Bradly Dahn',
+  'Kellye Lytle',
+  'Jennell Fetty',
+  'Al Voegele',
+  'Elodia Profit',
+  'Aron Mcmeen',
+  'Angle Rinke',
+  'Tomeka Mayville',
+  'Bree Withey',
+  'Lisette Demps',
+  'Imelda Goyette',
+  'Edris Dorsey',
+  'Tanner Furlong']
+
+
+company_array = [
+'Porsche',
+'Coca-Cola',
+'Google',
+'HSBC',
+'Louis Vuitton',
+'Sprite',
+'Corona',
+'Wal-Mart',
+'Credit Suisse',
+'American Express',
+'eBay',
+'MasterCard',
+'Prada',
+'Beko',
+'3M',
+'Facebook',
+'PepsiCo',
+'Cartier SA',
+'Cisco Systems',
+'Pampers']
+
+
+num = -1
+
+contact_array.each do |contact|
+  num += 1
+  Contact.create!(name: contact , company: company_array[num], phone1: "0293799#{num}3", phone2: "0299589#{num}4", email: "#{contact[0..4]}@mail.com", address: "#{1+rand(30)} Commonwealth Rd", comment: "Very professional")
 end
 
 
-1.upto(4) do |num1|
-  date1 = 1433385118 + rand(12096000)
-  date2 = date1 + rand(3024000)
+event_array = [
+  conf = {
+    name: 'Conference',
+    tasks: ['book venue', 'finalise budget', 'confirm speakers', 'arrange accomodation', 'confirm catering']
+  },
+  wed = {
+    name: 'Wedding',
+    tasks: ['book venue', 'finalise budget', 'decorations', 'band and DJ', 'confirm catering']
+  },
+  prod = {
+    name: 'Product Launch',
+    tasks: ['book venue', 'finalise budget', 'book travel', 'confirm catering']
+  }
+]
 
-  event = Event.create!(name: "Event no.#{num1}", start: Time.at(date1), end: Time.at(date2), address: ["address line.1", "address line.2"], comment: "abscdhd")
 
+num2 = -1
+event_array.each do |event|
 
-  1.upto(7) do |num2|
-    date3 = date1 - 1209600
+  num2 += 1
+  date1 = 1433385118 + rand(1814400)
+  date2 = date1 + rand(25200)
+
+  created_event = Event.create!(name: event[:name], start: Time.at(date1), end: Time.at(date2), address: "Another street", comment: "Complete asap!")
+
+  event[:tasks].each do |task|
+
+    date3 = rand(Time.now.to_i..date1)
     amount = 1 + rand(15000)
+    contact_no = 1 + rand(contact_array.size - 1)
 
-    task = event.tasks.create!(name: "Task no.#{num2}", deadline: Time.at(date3), cost: amount, contact_id: ( 1 + rand(11) ) )
+    created_event.tasks.create!(name: task, deadline: Time.at(date3), cost: amount, contact_id: contact_no )
   end
+
 end

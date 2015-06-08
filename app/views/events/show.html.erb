@@ -13,9 +13,8 @@
     </div> <!-- col -->
   </div> <!-- row -->
 
-
   <div class = "row">
-    <div class="col-xs-12 col-sm-5 col-md-4">
+    <div class="col-sm-12 col-md-3">
       <ul class="list-group event-list" role="details">
         <li class="list-group-item "> <strong> Date: </strong> <%= @event.start.strftime("%d %B") %> - <%= @event.end.strftime("%d %B %Y") %> </li>
         <li class="list-group-item">
@@ -24,7 +23,7 @@
       </ul>
       <div role="task-list">
         <ul class="list-group">
-          <li class="list-group-item active"> Pending tasks </li>
+          <li class="list-group-item active"> <h3> Pending tasks: </h3></li>
           <% @tasks.each do |task| %>
             <li class="list-group-item btn-primary"> <%= link_to task.name, event_task_path(@event, task) %></li>
           <% end %>
@@ -38,8 +37,9 @@
 
     </div> <!-- col -->
 
-    <div class="col-sm-7 col-md-8" role="calendar">
-      <p>insert calendar here </p>
+    <div class="col-sm-12 col-md-9" role="calendar">
+      <h3> Tasks this week: </h3>
+      <%= render partial: 'cal_week' %>
     </div> <!-- col -->
   </div> <!-- row -->
 
