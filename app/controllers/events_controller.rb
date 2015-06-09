@@ -36,6 +36,21 @@ class EventsController < ApplicationController
     redirect_to events_url
   end
 
+  def complete
+    @event = Event.find(params[:id])
+    @event.complete!
+    redirect_to events_path, notice: "Event Has Been Completed!"
+  end
+
+  def completed
+    @events = Event.all.completed
+  end
+
+  def incomplete
+    @events = Event.all.incomplete
+  end
+
+
   private
     def event_params
       params.require(:event).permit(:name, :start, :end, :address, :comment)

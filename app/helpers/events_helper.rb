@@ -22,7 +22,7 @@ module EventsHelper
     start_day = Date.today.beginning_of_month.beginning_of_week # returns the date of the Monday before or on the first day of the month
     end_day = Date.today.end_of_month.end_of_week
 
-    days = (end_day - start_day).to_i 
+    days = (end_day - start_day).to_i
 
     1.upto(days) do |num|
       arr << start_day + num

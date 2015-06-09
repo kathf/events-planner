@@ -5,8 +5,10 @@
       <div class="page-header">
         <div class="pull-right" role="links">
           <ul class="list-inline">
-            <li> <%= link_to "Delete task", event_task_path(@event, @task), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %> </li>
-            <li> <%= link_to "Edit task", edit_event_task_path(@event, @task), class: "btn btn-warning" %> </li>
+            <li> <%= link_to "Back to Event", event_path(@event), class: "btn btn-default" %> </li>
+            <li> <%= link_to "Task Accomplished!", complete_event_task_path(@event, @task), method: :post, data: { confirm: 'Are you sure it is completed?' }, class: "btn btn-primary" %> </li>
+            <li> <%= link_to "Edit Task", edit_event_task_path(@event, @task), class: "btn btn-warning" %> </li>
+            <li> <%= link_to "Delete Task", event_task_path(@event, @task), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %> </li>
           </ul>
         </div>
         <h1> <%= @task.name %> </h1>
@@ -14,20 +16,31 @@
     </div> <!-- col -->
   </div> <!-- row -->
 
-  <div class = "row">
+  <div class ="row">
     <div class="col-sm-7 col-md-8">
       <ul class="list-group event-list" role="details">
-        <li class="list-group-item "> <strong> Deadline: </strong> <%= @task.deadline.strftime("%d %B %Y") %> </li>
-        <li class="list-group-item "> <strong> Cost: </strong> <%= number_to_currency(@task.cost) %> </li>
-        <li class="list-group-item"> <p> <strong> Comments: </strong> <%= task_comment_if_exists %> </p>
+        <li class="list-group-item"><strong>Event: </strong><%= @event.name %></li>
+        <li class="list-group-item"><strong>Name: </strong><%= @task.name %></li>
+        <li class="list-group-item"><strong>Comments: </strong><%= task_comment_if_exists %></li>
+        <li class="list-group-item"><strong>Deadline: </strong><%= @task.deadline %></li>
+        <li class="list-group-item"><strong>Cost: </strong><%= number_to_currency(@task.cost) %></li>
+        <li class="list-group-item"><strong>Event ID: </strong><%= @task.event_id %></li>
+        <li class="list-group-item"><strong>Created At: </strong><%= @task.created_at.localtime.strftime("%d %B %Y %Z") %></li>
         </li>
       </ul>
     </div> <!-- col -->
 
     <div class="col-xs-12 col-sm-5 col-md-4" role="contacts">
-      <p>insert contacts here </p>
+      <ul class="list-group-item"><strong>Contact ID: </strong><%= @task.contact_id %></li>
+        <%  @contact = Contact.find(@task.contact_id) %>
+        <li class="list-group-item"><strong>Name: </strong><%= @contact.name %></li>
+        <li class="list-group-item"><strong>Company:  <%= @contact.company %></li>
+        <li class="list-group-item"><strong>Phone 1:  <%= @contact.phone1 %></li>
+        <li class="list-group-item"><strong>Phone 2:  <%= @contact.phone2 %></li>
+        <li class="list-group-item"><strong>Email:  <%= @contact.email %></li>
+        <li class="list-group-item"><strong>Address:  <%= @contact.address %></li>
+        <li class="list-group-item"><strong>Comment: <%= @contact.comment %></li>
+      </ul>
     </div> <!-- col -->
   </div> <!-- row -->
-
-
 </div> <!-- container -->

@@ -5,6 +5,8 @@
       <div class="page-header">
         <div class="pull-right" role="links">
           <ul class="list-inline">
+            <li> <%= link_to "Return to Events Index", events_path(@event), class: "btn btn-default" %> </li>
+            <li> <%= link_to "Archive This Event!", complete_event_path(@event), method: :post, data: { confirm: 'Are you sure it is completed?' }, class: "btn btn-primary" %> </li>
             <li> <%= link_to "Edit event", edit_event_path(@event), class: "btn btn-warning" %> </li>
           </ul>
         </div>
@@ -24,16 +26,30 @@
       <div role="task-list">
         <ul class="list-group">
           <li class="list-group-item active"> <h3> Pending tasks: </h3></li>
-          <% @tasks.each do |task| %>
+          <% @tasks.incomplete.each do |task| %>
             <li class="list-group-item btn-primary"> <%= link_to task.name, event_task_path(@event, task) %></li>
           <% end %>
         </ul>
       </div>
       <div class="" role="task-links">
         <ul class="list-inline">
-          <li> <%= link_to "Add task", new_event_task_path(@event), class: "btn btn-default" %> </li>
+          <li> <%= link_to "Add A Task", new_event_task_path(@event), class: "btn btn-default" %> </li>
         </ul>
       </div>
+
+        <strong>List of Completed Tasks:</strong>
+          <% @tasks.completed.each do |completed_task| %>
+            <div class="lines">
+              <ul>
+                <li>Task Name: <%= completed_task.name %></li>
+                <li>Cost: <%= completed_task.cost %></li>
+                <li>Comment: <%= completed_task.comment %></li>
+                <li>Completed At: <%= completed_task.completed_at.localtime.strftime("%d %B %Y %Z") %></li>
+              </ul>
+            </div>
+          <% end %>
+
+
 
     </div> <!-- col -->
 

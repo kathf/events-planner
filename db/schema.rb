@@ -34,8 +34,10 @@ ActiveRecord::Schema.define(version: 20150604020858) do
     t.datetime "end"
     t.string   "address"
     t.text     "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "completed",    default: false
+    t.datetime "completed_at"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -46,8 +48,10 @@ ActiveRecord::Schema.define(version: 20150604020858) do
     t.string   "address"
     t.decimal  "cost",       precision: 7, scale: 2
     t.text     "comment"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.boolean  "completed",                            default: false
+    t.datetime "completed_at"
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
   end
 
 end
