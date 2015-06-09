@@ -17,7 +17,7 @@ end
   date1 = 1433385118 + rand(12096000)
   date2 = date1 + rand(3024000)
 
-  event = Event.create!(name: "Event no.#{num1}", start: Time.at(date1), end: Time.at(date2), address: ["address line.1", "address line.2"], comment: "abscdhd")
+  event = Event.create!(name: "Event no.#{num1}", start: Time.at(date1), end: Time.at(date2), address: "address of event number #{num1}", comment: "abscdhd")
 
 
   1.upto(7) do |num2|
