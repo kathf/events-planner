@@ -1,0 +1,31 @@
+<table class="calendar-week table-striped table-bordered">
+  <thead>
+    <tr>
+      <!-- generates the date of each day this week  -->
+      <% 0.upto(4) do |num| %>
+        <th class="col-xs-2 text-center"> <%= days_this_week[num].strftime("%a %-d %b") %> </th>
+      <% end %>
+      <% 5.upto(6) do |num| %>
+        <th class="col-xs-1"> <%= days_this_week[num].strftime("%a") %> </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+
+      <% 0.upto(6) do |num| %>
+        <% arr = @tasks.tasks_this_day(days_this_week[num]) %>
+        <% if arr.empty? %>
+          <td></td>
+        <% else  %>
+          <td class="text-center calendar-entry">
+          <% arr.each do |elem| %>
+            <%= link_to elem[:name], event_task_path(@event, elem[:id])  %>
+          <% end %>
+          </td>
+        <% end %>
+      <% end  %>
+
+    </tr>
+  </tbody>
+</table>

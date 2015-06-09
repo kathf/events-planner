@@ -5,6 +5,7 @@ class CreateTasks < ActiveRecord::Migration
       t.references :contact
       t.string :name
       t.timestamp :deadline
+      t.string :address
       t.decimal :cost, precision: 7, scale: 2
       t.text :comment
       t.boolean :completed, default: false

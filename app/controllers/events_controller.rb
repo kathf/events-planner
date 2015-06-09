@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
+      # @event.tasks.create(name: @event.name, deadline: @event.start, address: @event.address, event_proxy: true) # creates "hidden" task that appears in calendar as the event
       redirect_to events_url, notice: "Created #{@event.name}"
     else
       render :new
@@ -46,7 +47,7 @@ class EventsController < ApplicationController
   end
 
   def incomplete
-    @events = @events.incomplete
+    @events = Event.all.incomplete
   end
 
 

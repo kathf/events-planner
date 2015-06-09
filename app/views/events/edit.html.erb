@@ -8,22 +8,6 @@
     </div> <!-- col -->
   </div> <!-- row -->
 
-    <div class = "row">
-      <div class="col-lg-10 col-lg-offset-1">
-        <div class = "row"> <!-- event edit form -->
-          <div class="col-xs-12">
-            <%= simple_form_for @event do |f| %>
-              <%= f.input :name %>
-              <%= f.input :start, discard_second: true, class: "text-center" %>
-              <%= f.input :end, class: "text-center" %>
-              <%= f.input :address %>
-              <%= f.input :comment %>
-              <%= f.button :submit%>
-              <%= link_to "Delete event", event_path(@event), method: :delete, class: "btn btn-danger pull-right", data: { confirm: "Are you sure?" } %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div> <!-- col -->
-  </div> <!-- row -->
+  <%= render partial: 'form' %>
+
 </div> <!-- container -->

@@ -1,6 +1,7 @@
 class Task < ActiveRecord::Base
   belongs_to :event
   belongs_to :contact
+
   accepts_nested_attributes_for :contact
   # motive: to allow adding a contact details when creating a new task
 
@@ -13,6 +14,10 @@ class Task < ActiveRecord::Base
     self.completed_at = Time.now
     self.completed = true
     self.save!
+  end
+
+  def self.tasks_this_day(date)
+    where( 'deadline > ? AND deadline < ?', date.beginning_of_day, date.end_of_day )
   end
 
 end

@@ -45,7 +45,8 @@ ActiveRecord::Schema.define(version: 20150604020858) do
     t.integer  "contact_id"
     t.string   "name"
     t.datetime "deadline"
-    t.decimal  "cost",         precision: 7, scale: 2
+    t.string   "address"
+    t.decimal  "cost",       precision: 7, scale: 2
     t.text     "comment"
     t.boolean  "completed",                            default: false
     t.datetime "completed_at"
