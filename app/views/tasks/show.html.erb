@@ -22,7 +22,7 @@
         <li class="list-group-item"><strong>Event: </strong><%= @event.name %></li>
         <li class="list-group-item"><strong>Name: </strong><%= @task.name %></li>
         <li class="list-group-item"><strong>Comments: </strong><%= task_comment_if_exists %></li>
-        <li class="list-group-item"><strong>Deadline: </strong><%= @task.deadline %></li>
+        <li class="list-group-item"><strong>Deadline: </strong><%= @task.deadline.localtime.strftime("%d %B %Y %Z") %></li>
         <li class="list-group-item"><strong>Cost: </strong><%= number_to_currency(@task.cost) %></li>
         <li class="list-group-item"><strong>Event ID: </strong><%= @task.event_id %></li>
         <li class="list-group-item"><strong>Created At: </strong><%= @task.created_at.localtime.strftime("%d %B %Y %Z") %></li>
