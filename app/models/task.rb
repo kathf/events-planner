@@ -19,5 +19,5 @@ class Task < ActiveRecord::Base
   def self.tasks_this_day(date)
     where( 'deadline > ? AND deadline < ?', date.beginning_of_day, date.end_of_day )
   end
-
+# deadline: (date.beginning_of_day..date.end_of_day )
 end
